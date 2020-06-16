@@ -1,0 +1,15 @@
+{
+  "name": "websequencer",
+  "version": "1.0.0",
+  "description": "A step sequencer by Caleb, created using the instructions from Mozilla Developer Network at https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Advanced_techniques",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WebAudio",
+    "React"
+  ],
+  "author": "Caleb Fringer",
+  "license": "ISC"
+}
