@@ -14,7 +14,6 @@
   "author": "Caleb Fringer",
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.5.1",
     "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
