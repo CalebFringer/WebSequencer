@@ -8,7 +8,7 @@ class Controls extends React.Component {
 	render() {
 		return (
 			<section className="controls-main">
-				<h1>ModemDN</h1>
+				<h1>WebSequencer</h1>
 				<label htmlFor="bpm">BPM</label>
 				<input 
 					name="bpm" id="bpm" type="range" min="60" max="180" value="120" step="1"
