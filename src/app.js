@@ -1,17 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Sequencer from './components/Sequencer'
 
-class Sequencer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
-	render() {
-		return (
-			<h1>WebSequencer - by Caleb Fringer</h1>
-		)
-	}
-}
-
-ReactDOM.render(<Sequencer />, document.getElementById('root') );
+//ReactDOM.render(<App />, document.body);
+ReactDOM.render(
+	<Sequencer />, 
+	document.getElementById('root')
+);
