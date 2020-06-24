@@ -1,6 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Sequencer from './components/Sequencer'
-import './styles.css';
+import {KeyboardUI, KeyboardEngine} from './components/Keyboard.js';
+import Clock from './components/Clock.js';
 
-ReactDOM.render(<Sequencer />, document.getElementById('root'));
+class App extends React.Component {
+	render() {
+		return(
+			<div>
+				<KeyboardUI />
+				<KeyboardEngine />
+			</div>
+		);
+	}
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
