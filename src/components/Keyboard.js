@@ -1,5 +1,8 @@
 import React from 'react';
-import SettingsBar from './SettingsBar.js'
+import Octave from './Octave.js';
+import NoteTable from './NoteTable.js';
+
+let notes = NoteTable();
 
 class KeyboardUI extends React.Component {
 	constructor(props) {
@@ -11,7 +14,10 @@ class KeyboardUI extends React.Component {
 		return (
 			<div className="container">
 				<div className="keyboard">
-					<SettingsBar />
+					<Octave />
+					<Octave />
+					<Octave />
+					<Octave />
 				</div>
 			</div>
 		);
@@ -29,7 +35,12 @@ class KeyboardEngine extends React.Component {
 
 	componentDidMount() {
 		 this.audioCtx = new AudioContext();
-		 	//new (window.AudioContext || window.webkitAudioContext)();
+		 this.masterGainNode = this.audioCtx.createGain();
+		 this.masterGainNode.connect(this.audioCtx.destination);
+	}
+
+	componentWillUnmount() {
+		this.audioCtx.close();
 	}
 	
 	render() {
