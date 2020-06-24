@@ -1,6 +1,7 @@
 import React from 'react';
 import Octave from './Octave.js';
 import NoteTable from './NoteTable.js';
+import SettingsBar from './SettingsBar.js'
 
 let notes = NoteTable();
 
@@ -13,12 +14,16 @@ class KeyboardUI extends React.Component {
 	render() {
 		return (
 			<div className="container">
-				<div className="keyboard">
-					<Octave />
-					<Octave />
-					<Octave />
-					<Octave />
+				<div className="Keyboard">
+					<Octave id={0} />
+					<Octave id={1} />
+					<Octave id={2} />
+					<Octave id={3} />
+					<Octave id={4} />
+					<Octave id={5} />
+					<Octave id={6} />
 				</div>
+				<SettingsBar />
 			</div>
 		);
 	}

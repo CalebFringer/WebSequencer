@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {KeyboardUI, KeyboardEngine} from './components/Keyboard.js';
-import SettingsBar from './components/SettingsBar.js'
+
 class App extends React.Component {
 	render() {
 		return(
-			<div>
+			<div id="App">
 				<KeyboardEngine />
 				<KeyboardUI />
-				<SettingsBar />
 			</div>
 		);
 	}
