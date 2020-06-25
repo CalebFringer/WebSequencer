@@ -3,19 +3,19 @@ import Key from './Key.js';
 
 export default function Octave(props) {
 	return (
-		<div className="octave">
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-			<Key />
-		</div>
+		<span className="octave">
+			<Key note="A"/>
+			<Key note="A#"/>
+			<Key note="B"/>
+			<Key note="C"/>
+			<Key note="C#"/>
+			<Key note="D"/>
+			<Key note="D#"/>
+			<Key note="E"/>
+			<Key note="F"/>
+			<Key note="F#"/>
+			<Key note="G"/>
+			<Key note="G#"/>
+		</span>
 	);
 }

@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+// Components
 import {KeyboardUI, KeyboardEngine} from './components/Keyboard.js';
+import Clock from './components/Clock.js';
+// Master stylesheet
+import './styles.css';
 
 class App extends React.Component {
 	render() {

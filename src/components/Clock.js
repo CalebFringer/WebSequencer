@@ -25,7 +25,7 @@ class Clock extends React.Component {
 	
 	// Destructor, basically
 	componentWillUnmount() {
-		clearInterval(this.timerID); 
+		clearInterval(); 
 	}
 
 	tick() {
