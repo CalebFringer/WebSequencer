@@ -1,12 +1,10 @@
 import React from 'react';
 import Key from './Key.js';
 
-export default function Octave(props) {
+export default function Octave(props) 
+{
 	return (
-		<span className="octave">
-			<Key note="A"/>
-			<Key note="A#"/>
-			<Key note="B"/>
+		<div className="octave" >
 			<Key note="C"/>
 			<Key note="C#"/>
 			<Key note="D"/>
@@ -16,6 +14,9 @@ export default function Octave(props) {
 			<Key note="F#"/>
 			<Key note="G"/>
 			<Key note="G#"/>
-		</span>
+			<Key note="A"/>
+			<Key note="A#"/>
+			<Key note="B"/>
+		</div>
 	);
 }
