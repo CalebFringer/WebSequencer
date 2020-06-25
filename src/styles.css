@@ -1,3 +1,6 @@
+button {
+  outline:none; 
+}
 .key {
   list-style:none;
   position:relative;
