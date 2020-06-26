@@ -1,17 +1,21 @@
 const Notes = ['c','c#','d','d#','e','f','f#','g','g#','a','a#','b'];
 const NoteTable = [];
-const A440 = { name: 'a4', octave: 4, freq: 440 };
+const A440 = { name: 'a', octave: 4, freq: 440 };
 const magicNumber = Math.pow(2, 1/12);
+
+for (let octave=0; octave<9; octave++) {
+    NoteTable[octave] = Notes.map(name => createNote(name, octave));
+}
+console.log(NoteTable);
 
 function createNote(name, octave) {
     let newNote = {
         name: name, 
         octave: octave,
-        fullName: name + octave,
         freq: null 
     }
 
-    let distance = calcDistanceFromA(newNote);
+    let distance = distanceHelper(newNote);
     newNote.freq = A440.freq * Math.pow(magicNumber, distance);
 
     return newNote;
@@ -19,17 +23,13 @@ function createNote(name, octave) {
 
 // Helper method for calculating frequency
 // Returns an signed int representing the distance between note & A440
-function calcDistanceFromA(note) {
+function distanceHelper(note) {
+    let distance
     let index = Notes.indexOf(note.name);
-    let distance = index - Notes.indexOf('a');
-    let octaveCoeff = (note.octave - 4) * 12;
-    distance += octaveCoeff
-
-    return distance;
+    let octaveCoeff = (note.octave - A440.octave) * 12;
+    
+    return distance = octaveCoeff + index - Notes.indexOf('a');
 }
 
-for (let octave=0; octave<9; octave++) {
-    NoteTable[octave] = Notes.map(name => createNote(name, octave));
-}
 
 export default NoteTable;
