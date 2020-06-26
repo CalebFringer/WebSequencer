@@ -1,0 +1,6 @@
+.audio-controls {
+	width: fit-content;
+	display: flex;
+	flex-flow: column;
+	margin: 0 auto;
+}
