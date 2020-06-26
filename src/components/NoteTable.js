@@ -16,21 +16,20 @@ function createNote(name, octave) {
 
     return newNote;
 }
-// Takes a note and returns an signed int representing
-// the distance in half-steps between the note & A440 
+
+// Helper method for calculating frequency
+// Returns an signed int representing the distance between note & A440
 function calcDistanceFromA(note) {
     let index = Notes.indexOf(note.name);
     let distance = index - Notes.indexOf('a');
     let octaveCoeff = (note.octave - 4) * 12;
     distance += octaveCoeff
-    
+
     return distance;
 }
 
 for (let octave=0; octave<9; octave++) {
     NoteTable[octave] = Notes.map(name => createNote(name, octave));
 }
-
-console.log(NoteTable);
 
 export default NoteTable;
