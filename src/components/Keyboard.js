@@ -1,6 +1,6 @@
 import React from 'react';
 import Key from './Key.js';
-//import NoteTable from './NoteTable.js';
+import NoteTable from './NoteTable.js';
 import '../styles/Keyboard.css';
 
 
@@ -9,7 +9,7 @@ class KeyboardUI extends React.Component {
 		super(props);
 		this.state = {};
 	}
-
+	
 	render() {
 		return (
 			<div className="keyboard">
