@@ -2,16 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // Components
 import { KeyboardUI, KeyboardEngine } from './components/Keyboard.js';
-import SettingsBar from './components/SettingsBar.js'
-// Master stylesheet
-import './styles.css';
+import AudioControls from './components/AudioControls.js'
 
 class App extends React.Component {
 	render() {
 		return(
 			<div id="App">
 				<KeyboardUI />
-				<SettingsBar />
+				<AudioControls />
 				<KeyboardEngine />
 			</div>
 		);

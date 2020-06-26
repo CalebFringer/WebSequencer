@@ -1,8 +1,8 @@
 import React from 'react';
-import Key from './Key.js'
+import Key from './Key.js';
 //import NoteTable from './NoteTable.js';
+import '../styles/Keyboard.css';
 
-//let notes = NoteTable();
 
 class KeyboardUI extends React.Component {
 	constructor(props) {
@@ -12,7 +12,7 @@ class KeyboardUI extends React.Component {
 
 	render() {
 		return (
-			<div className="Keyboard">
+			<div className="keyboard">
 				<Key note="c"/>
 				<Key note="c#"/>
 				<Key note="d"/>
