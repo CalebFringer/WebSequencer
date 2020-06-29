@@ -6,7 +6,7 @@ const magicNumber = Math.pow(2, 1/12);
 for (let octave=0; octave<9; octave++) {
     NoteTable[octave] = Notes.map(name => createNote(name, octave));
 }
-console.log(NoteTable);
+//console.log(NoteTable);
 
 function createNote(name, octave) {
     let newNote = {
