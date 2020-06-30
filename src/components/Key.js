@@ -1,11 +1,11 @@
 import React from 'react';
 let Naturals = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 
-export default class Key extends React.Component {
+class Key extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isPlaying: false
+			isPlaying: false,
 		}
 	}
 
@@ -13,6 +13,7 @@ export default class Key extends React.Component {
 		this.setState({isPlaying: true})
 		console.log('Note pressed!');
 	}
+
 	noteReleased = () => {
 		if (this.state.isPlaying == true) {
 			this.setState({isPlaying: false})
@@ -32,3 +33,5 @@ export default class Key extends React.Component {
 		/>
 	}
 }
+
+export default Key;
