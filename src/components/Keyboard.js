@@ -10,21 +10,35 @@ class KeyboardUI extends React.Component {
 		this.state = {};
 	}
 	
+	notePressed = () => {
+		console.log('Note pressed!');
+	}
+	noteReleased = () => {
+		console.log('Note released!');
+	}
 	render() {
+		let keysToRender = []
+
+		NoteTable.forEach(octave => {
+			octave.forEach(note => {
+				if (note.octave == 3 || note.octave == 4) {
+					let currentKey = <Key 
+						className="key" 
+						note={note.name} 
+						octave={note.octave} 
+						frequency={note.freq} 
+						onMouseDown={this.notePressed}
+						onMouseUp={this.noteReleased}
+						onMouseLeave={this.noteReleased}
+					/>
+					keysToRender.push(currentKey);
+				}
+			})
+		});
+
 		return (
 			<div className="keyboard">
-				<Key note="c"/>
-				<Key note="c#"/>
-				<Key note="d"/>
-				<Key note="d#"/>
-				<Key note="e"/>
-				<Key note="f"/>
-				<Key note="f#"/>
-				<Key note="g"/>
-				<Key note="g#"/>
-				<Key note="a"/>
-				<Key note="a#"/>
-				<Key note="b"/>
+				{keysToRender}
 			</div>
 		);
 	}
@@ -49,6 +63,13 @@ class KeyboardEngine extends React.Component {
 		this.audioCtx.close();
 	}
 	
+	playTone(freq) {
+		let osc = this.audioCtx.createOscillator();
+		osc.connect(this.masterGainNode);
+		osc.frequency.value = freq;
+
+		osc.start()
+	}
 	render() {
 		return null;
 	}
