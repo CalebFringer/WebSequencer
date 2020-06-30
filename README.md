@@ -2,7 +2,7 @@
 
 Hello WebAudio!
 
-To test your own copy, fork this repository, install all dependencies with ```npm i``` & run ```npm start```
+To test your own copy, fork this repository, install the dependencies with ```npm i```, & run ```npm start```
 
 You can change the host IP & port number the app is served on in 'webpack.config.js',
 under the modules.exports.devServer object.
