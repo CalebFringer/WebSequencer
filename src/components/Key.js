@@ -5,14 +5,19 @@ export default class Key extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			isPlaying: false
 		}
 	}
 
 	notePressed = () => {
+		this.setState({isPlaying: true})
 		console.log('Note pressed!');
 	}
 	noteReleased = () => {
-		console.log('Note released!');
+		if (this.state.isPlaying == true) {
+			this.setState({isPlaying: false})
+			console.log('Note released!');
+		}
 	}
 	
 	render() {
