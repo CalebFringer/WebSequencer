@@ -27,7 +27,7 @@ class KeyboardUI extends React.Component {
 						note={note.name} 
 						octave={note.octave} 
 						frequency={note.freq} 
-						onMouseDown={this.notePressed}
+						onClick={this.notePressed}
 						onMouseUp={this.noteReleased}
 						onMouseLeave={this.noteReleased}
 					/>
