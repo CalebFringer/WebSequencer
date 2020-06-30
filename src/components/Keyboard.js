@@ -13,6 +13,7 @@ class KeyboardUI extends React.Component {
 	render() {
 		let keysToRender = []
 
+		// This is fucking ugly. fix it later
 		NoteTable.forEach(octave => {
 			octave.forEach(note => {
 				if (note.octave == 3 || note.octave == 4) {
