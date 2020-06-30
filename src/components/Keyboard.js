@@ -10,12 +10,6 @@ class KeyboardUI extends React.Component {
 		this.state = {};
 	}
 	
-	notePressed = () => {
-		console.log('Note pressed!');
-	}
-	noteReleased = () => {
-		console.log('Note released!');
-	}
 	render() {
 		let keysToRender = []
 
@@ -23,13 +17,9 @@ class KeyboardUI extends React.Component {
 			octave.forEach(note => {
 				if (note.octave == 3 || note.octave == 4) {
 					let currentKey = <Key 
-						className="key" 
 						note={note.name} 
 						octave={note.octave} 
 						frequency={note.freq} 
-						onClick={this.notePressed}
-						onMouseUp={this.noteReleased}
-						onMouseLeave={this.noteReleased}
 					/>
 					keysToRender.push(currentKey);
 				}
