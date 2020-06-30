@@ -2,10 +2,10 @@
 
 Hello WebAudio!
 
-To test your own copy, fork this repository & run ```npm start```
+To test your own copy, fork this repository, install all dependencies with ```npm i``` & run ```npm start```
 
 You can change the host IP & port number the app is served on in 'webpack.config.js',
-in modules.exports.devServer
+under the modules.exports.devServer object.
 
 For a guide on making your own synthesizer, reference
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Simple_synth
