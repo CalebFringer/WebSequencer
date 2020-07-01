@@ -8,6 +8,19 @@ class Key extends React.Component {
 			isPlaying: false,
 		}
 	}
+
+	onMouseDownHandler = (event) => {
+		let note = {id: this.props.id, frequency: this.props.frequency}
+		this.props.onNotePressed(note);
+	}
+	onMouseLeaveHandler = (event) => {
+		let note = {id: this.props.id, frequency: this.props.frequency}
+		this.props.onNoteReleased(note);
+	}
+	onMouseUpHandler = (event) => {
+		let note = {id: this.props.id, frequency: this.props.frequency}
+		this.props.onNoteReleased(note);
+	}
 	
 	render() {
 		// If its not an Natural key, itll have an index of -1
@@ -16,9 +29,9 @@ class Key extends React.Component {
 		return <button 
 			className    = {"key " + (isAnAccidental ? "black" : "ivory") }
 			id 				   = {this.props.id}
-			onMouseDown  = {this.props.notePressedHandler.bind(this)}
-			onMouseLeave = {this.props.noteReleasedHandler.bind(this)}
-			onMouseUp    = {this.props.noteReleasedHandler.bind(this)}
+			onMouseDown  = {this.onMouseDownHandler}
+			onMouseLeave = {this.onMouseLeaveHandler}
+			onMouseUp    = {this.onMouseUpHandler}
 		/>
 	}
 }

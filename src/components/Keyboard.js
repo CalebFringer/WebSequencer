@@ -24,8 +24,8 @@ class Keyboard extends React.Component {
 							octave    = {note.octave}
 							frequency = {note.freq} 
 							id        = {note.name + note.octave} 
-							notePressedHandler  = {this.onNotePressed}
-							noteReleasedHandler = {this.onNoteReleased}
+							onNotePressed  = {this.onNotePressed}
+							onNoteReleased = {this.onNoteReleased}
 						/>
 					);
 				}
@@ -35,14 +35,16 @@ class Keyboard extends React.Component {
 		return keys;
 	}
 
-	onNotePressed() {
+	onNotePressed = (note) => {
 		this.setState({isPlaying: true});
-		console.log(`${this.props.id} pressed`);
+		console.log(`${note.id} pressed`);
+		this.playTone(note.frequency);
 	}
-	onNoteReleased() {
+
+	onNoteReleased = (note) => {
 		if (this.state.isPlaying == true) {
 			this.setState({isPlaying: false});
-			console.log(`${this.props.id} released`);
+			console.log(`${note.id} released`);
 		}
 	}
 
