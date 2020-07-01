@@ -10,16 +10,29 @@ class Key extends React.Component {
 	}
 
 	onMouseDownHandler = (event) => {
-		let note = {id: this.props.id, frequency: this.props.frequency}
-		this.props.onNotePressed(note);
+		this.props.onNotePressed({
+			id: this.props.id,
+			frequency: this.props.frequency
+		});
+		this.setState({isPlaying: true})
 	}
 	onMouseLeaveHandler = (event) => {
-		let note = {id: this.props.id, frequency: this.props.frequency}
-		this.props.onNoteReleased(note);
+		if (this.state.isPlaying) {
+			this.props.onNoteReleased({
+				id: this.props.id,
+				frequency: this.props.frequency
+			});
+			this.setState({isPlaying: false})
+		}
 	}
 	onMouseUpHandler = (event) => {
-		let note = {id: this.props.id, frequency: this.props.frequency}
-		this.props.onNoteReleased(note);
+		if (this.state.isPlaying) {
+			this.props.onNoteReleased({
+				id: this.props.id,
+				frequency: this.props.frequency
+			});
+			this.setState({isPlaying: false})
+		}
 	}
 	
 	render() {

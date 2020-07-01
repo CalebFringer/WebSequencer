@@ -36,16 +36,12 @@ class Keyboard extends React.Component {
 	}
 
 	onNotePressed = (note) => {
-		this.setState({isPlaying: true});
 		console.log(`${note.id} pressed`);
 		this.playTone(note.frequency);
 	}
 
 	onNoteReleased = (note) => {
-		if (this.state.isPlaying == true) {
-			this.setState({isPlaying: false});
-			console.log(`${note.id} released`);
-		}
+		console.log(`${note.id} released`);
 	}
 
 	componentDidMount() {
