@@ -4,50 +4,52 @@ import NoteTable from './NoteTable.js';
 import '../styles/Keyboard.css';
 
 
-class KeyboardUI extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-	
-	render() {
-		let keysToRender = []
 
-		// This is fucking ugly. fix it later
-		NoteTable.forEach(octave => {
-			octave.forEach(note => {
-				if (note.octave == 3 || note.octave == 4) {
-					let currentKey = <Key 
-						note={note.name} 
-						octave={note.octave} 
-						frequency={note.freq} 
-					/>
-					keysToRender.push(currentKey);
-				}
-			})
-		});
-
-		return (
-			<div className="keyboard">
-				{keysToRender}
-			</div>
-		);
-	}
-}
-
-class KeyboardEngine extends React.Component {
+class Keyboard extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			oscList: [],
 			masterGainNode: null,
-		};
+			keys: this.initKeys(),
+		}
+	}
+
+	initKeys() {
+		let keys = [];
+		NoteTable.forEach(octave => {
+			octave.forEach(note => {
+				if (note.octave == 3 || note.octave == 4) {
+					let currentKey = <Key 
+						note      = {note.name} 
+						octave    = {note.octave}
+						frequency = {note.freq} 
+						notePressedHandler  = {this.onNotePressed}
+						noteReleasedHandler = {this.onNoteReleased}
+					/>
+					keys.push(currentKey);
+				}
+			})
+		});
+
+		return keys;
+	}
+
+	onNotePressed() {
+		this.setState({isPlaying: true});
+		console.log('note pressed');
+	}
+	onNoteReleased() {
+		if (this.state.isPlaying == true) {
+			this.setState({isPlaying: false});
+			console.log('note released');
+		}
 	}
 
 	componentDidMount() {
-		 this.audioCtx = new AudioContext();
-		 this.masterGainNode = this.audioCtx.createGain();
-		 this.masterGainNode.connect(this.audioCtx.destination);
+		this.audioCtx = new AudioContext();
+		this.masterGainNode = this.audioCtx.createGain();
+		this.masterGainNode.connect(this.audioCtx.destination);
 	}
 
 	componentWillUnmount() {
@@ -61,9 +63,14 @@ class KeyboardEngine extends React.Component {
 
 		osc.start()
 	}
+
 	render() {
-		return null;
+		return (
+			<div className="keyboard">
+				{this.state.keys}
+			</div>
+		);
 	}
 }
 
-export { KeyboardUI, KeyboardEngine };
+export default Keyboard;
