@@ -3,8 +3,6 @@ import Key from './Key.js';
 import NoteTable from './NoteTable.js';
 import '../styles/Keyboard.css';
 
-
-
 class Keyboard extends React.Component {
 	constructor(props) {
 		super(props);
@@ -20,14 +18,16 @@ class Keyboard extends React.Component {
 		NoteTable.forEach(octave => {
 			octave.forEach(note => {
 				if (note.octave == 3 || note.octave == 4) {
-					let currentKey = <Key 
-						note      = {note.name} 
-						octave    = {note.octave}
-						frequency = {note.freq} 
-						notePressedHandler  = {this.onNotePressed}
-						noteReleasedHandler = {this.onNoteReleased}
-					/>
-					keys.push(currentKey);
+					keys.push( 
+						<Key 
+							note      = {note.name} 
+							octave    = {note.octave}
+							frequency = {note.freq} 
+							id        = {note.name + note.octave} 
+							notePressedHandler  = {this.onNotePressed}
+							noteReleasedHandler = {this.onNoteReleased}
+						/>
+					);
 				}
 			})
 		});
@@ -37,12 +37,12 @@ class Keyboard extends React.Component {
 
 	onNotePressed() {
 		this.setState({isPlaying: true});
-		console.log('note pressed');
+		console.log(`${this.props.id} pressed`);
 	}
 	onNoteReleased() {
 		if (this.state.isPlaying == true) {
 			this.setState({isPlaying: false});
-			console.log('note released');
+			console.log(`${this.props.id} released`);
 		}
 	}
 

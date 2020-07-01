@@ -15,6 +15,7 @@ class Key extends React.Component {
 
 		return <button 
 			className    = {"key " + (isAnAccidental ? "black" : "ivory") }
+			id 				   = {this.props.id}
 			onMouseDown  = {this.props.notePressedHandler.bind(this)}
 			onMouseLeave = {this.props.noteReleasedHandler.bind(this)}
 			onMouseUp    = {this.props.noteReleasedHandler.bind(this)}
