@@ -7,7 +7,7 @@ class Keyboard extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			oscList: [],
+			oscillators: {},
 			masterGainNode: null,
 			keys: this.initKeys(),
 		}
@@ -35,15 +35,6 @@ class Keyboard extends React.Component {
 		return keys;
 	}
 
-	onNotePressed = (note) => {
-		console.log(`${note.id} pressed`);
-		this.playTone(note.frequency);
-	}
-
-	onNoteReleased = (note) => {
-		console.log(`${note.id} released`);
-	}
-
 	componentDidMount() {
 		this.audioCtx = new AudioContext();
 		this.masterGainNode = this.audioCtx.createGain();
@@ -54,12 +45,29 @@ class Keyboard extends React.Component {
 		this.audioCtx.close();
 	}
 	
-	playTone(freq) {
-		let osc = this.audioCtx.createOscillator();
-		osc.connect(this.masterGainNode);
-		osc.frequency.value = freq;
+	onNotePressed = (note) => {
+		console.log(`${note.id} pressed`);
+		let osc = this.playTone(note.frequency);
+		// create a reference to the current oscillator that we can call
+		// in `onNoteReleased()`
+		this.setState({
+			oscillators: { 
+				[note.id]: osc
+			}
+		});
+	}
 
-		osc.start()
+	onNoteReleased = (note) => {
+		console.log(`${note.id} released`);
+		this.state.oscillators[note.id].stop();
+	}
+
+	playTone(freq) {
+		let osc = new OscillatorNode(this.audioCtx, {frequency: freq}); 
+		osc.connect(this.masterGainNode);
+
+		osc.start();
+		return osc;
 	}
 
 	render() {
