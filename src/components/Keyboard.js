@@ -15,20 +15,20 @@ class Keyboard extends React.Component {
 
 	initKeys() {
 		let keys = [];
-		NoteTable.forEach(octave => {
+		let range = NoteTable.slice(3,5); // Select the range of the piano you want to render
+
+		range.forEach(octave => {
 			octave.forEach(note => {
-				if (note.octave == 3 || note.octave == 4) {
-					keys.push( 
-						<Key 
-							note      = {note.name} 
-							octave    = {note.octave}
-							frequency = {note.freq} 
-							id        = {note.name + note.octave} 
-							onNotePressed  = {this.onNotePressed}
-							onNoteReleased = {this.onNoteReleased}
-						/>
-					);
-				}
+				keys.push( 
+					<Key 
+						note      = {note.name} 
+						octave    = {note.octave}
+						frequency = {note.freq} 
+						id        = {note.name + note.octave} 
+						onNotePressed  = {this.onNotePressed}
+						onNoteReleased = {this.onNoteReleased}
+					/>
+				);
 			})
 		});
 

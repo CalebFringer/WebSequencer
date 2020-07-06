@@ -31,5 +31,4 @@ function distanceHelper(note) {
     return distance = octaveCoeff + index - Notes.indexOf('a');
 }
 
-
 export default NoteTable;
