@@ -9,29 +9,14 @@ class Key extends React.Component {
 		}
 	}
 
-	onTouchStartHandler = (event) => {
-		this.onMouseDownHandler(event);
-	}
-	onTouchEndHandler = (event) => {
-		this.onMouseUpHandler(event);
-	}
-	onMouseDownHandler = (event) => {
+	startPlaying = (event) => {
 		this.props.onNotePressed({
 			id: this.props.id,
 			frequency: this.props.frequency
 		});
 		this.setState({isPlaying: true})
 	}
-	onMouseLeaveHandler = (event) => {
-		if (this.state.isPlaying) {
-			this.props.onNoteReleased({
-				id: this.props.id,
-				frequency: this.props.frequency
-			});
-			this.setState({isPlaying: false})
-		}
-	}
-	onMouseUpHandler = (event) => {
+	stopPlaying = (event) => {
 		if (this.state.isPlaying) {
 			this.props.onNoteReleased({
 				id: this.props.id,
@@ -48,11 +33,11 @@ class Key extends React.Component {
 		return <button 
 			className    = {"key " + (isAnAccidental ? "black" : "ivory") }
 			id 				   = {this.props.id}
-			onMouseDown  = {this.onMouseDownHandler}
-			onMouseLeave = {this.onMouseLeaveHandler}
-			onMouseUp    = {this.onMouseUpHandler}
-			onTouchStart = {this.onTouchStartHandler}
-			onTouchEnd   = {this.onTouchEndHandler}
+			onMouseDown  = {this.startPlaying}
+			onMouseLeave = {this.stopPlaying}
+			onMouseUp    = {this.stopPlaying}
+			onTouchStart = {this.startPlaying}
+			onTouchEnd   = {this.stopPlaying}
 		/>
 	}
 }
