@@ -10,7 +10,7 @@ class Key extends React.Component {
 	}
 
 	startPlaying = (event) => {
-		this.props.onNotePressed({
+		this.props.noteDownHandler({
 			id: this.props.id,
 			frequency: this.props.frequency
 		});
@@ -18,7 +18,7 @@ class Key extends React.Component {
 	}
 	stopPlaying = (event) => {
 		if (this.state.isPlaying) {
-			this.props.onNoteReleased({
+			this.props.noteUpHandler({
 				id: this.props.id,
 				frequency: this.props.frequency
 			});
