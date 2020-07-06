@@ -9,6 +9,12 @@ class Key extends React.Component {
 		}
 	}
 
+	onTouchStartHandler = (event) => {
+		this.onMouseDownHandler(event);
+	}
+	onTouchEndHandler = (event) => {
+		this.onMouseUpHandler(event);
+	}
 	onMouseDownHandler = (event) => {
 		this.props.onNotePressed({
 			id: this.props.id,
@@ -45,6 +51,8 @@ class Key extends React.Component {
 			onMouseDown  = {this.onMouseDownHandler}
 			onMouseLeave = {this.onMouseLeaveHandler}
 			onMouseUp    = {this.onMouseUpHandler}
+			onTouchStart = {this.onTouchStartHandler}
+			onTouchEnd   = {this.onTouchEndHandler}
 		/>
 	}
 }
