@@ -24,8 +24,8 @@ class Keyboard extends React.Component {
 					octave    : note.octave,
 					frequency : note.freq,
 					id        : note.name + note.octave,
-					noteDownHandler  : this.onNotePressed,
-					noteUpHandler : this.onNoteReleased
+					noteDownHandler : this.onNotePressed,
+					noteUpHandler   : this.onNoteReleased
 				}
 
 				keys.push(<Key {...props}/>);
