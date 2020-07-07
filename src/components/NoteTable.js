@@ -4,9 +4,9 @@ const magicNumber = Math.pow(2, 1/12);
 
 
 class NoteTable {
-    constructor(rangeStart, rangeEnd) {
+    constructor(start, end) {
         let table = [];
-        for (let octave=rangeStart; octave<=rangeEnd; octave++) {
+        for (let octave=start; octave<end; octave++) {
             table[octave] = Notes.map(name => this.createNote(name, octave));
         }
         return table;

@@ -15,7 +15,7 @@ class Keyboard extends React.Component {
 
 	initKeys() {
 		let keys = [];
-		let range = new NoteTable(4,5); // Select the range of the piano you want to render
+		let range = new NoteTable(4,6); // Select the range of the piano you want to render
 
 		range.forEach(octave => {
 			octave.forEach(note => {
