@@ -30,15 +30,16 @@ class Key extends React.Component {
 		// If its not an Natural key, itll have an index of -1
 		let	isAnAccidental = Naturals.indexOf(this.props.note) == -1
 
-		return <button 
-			className    = {"key " + (isAnAccidental ? "black" : "ivory") }
-			id 				   = {this.props.id}
-			onMouseDown  = {this.startPlaying}
-			onMouseLeave = {this.stopPlaying}
-			onMouseUp    = {this.stopPlaying}
-			onTouchStart = {this.startPlaying}
-			onTouchEnd   = {this.stopPlaying}
-		/>
+		let props = {
+			className    : 'key ' + (isAnAccidental ? 'black' : 'ivory'),
+			id           : this.props.id,
+			onMouseDown  : this.startPlaying,
+			onMouseUp    : this.stopPlaying,
+			onMouseLeave : this.stopPlaying,
+			onTouchStart : this.startPlaying,
+			onTouchEnd   : this.stopPlaying
+		}
+		return <button {...props}/>
 	}
 }
 
