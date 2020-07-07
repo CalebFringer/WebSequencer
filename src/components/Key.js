@@ -29,7 +29,6 @@ class Key extends React.Component {
 	render() {
 		// If its not an Natural key, itll have an index of -1
 		let	isAnAccidental = Naturals.indexOf(this.props.note) == -1
-
 		let props = {
 			className    : 'key ' + (isAnAccidental ? 'black' : 'ivory'),
 			id           : this.props.id,
