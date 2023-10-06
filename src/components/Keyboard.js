@@ -2,6 +2,7 @@ import React from 'react';
 import Key from './Key.js';
 import NoteTable from './NoteTable.js';
 import '../styles/Keyboard.css';
+import VolumeKnob from './VolumeKnob.js';
 
 class Keyboard extends React.Component {
 	constructor(props) {
@@ -10,6 +11,7 @@ class Keyboard extends React.Component {
 			oscillators: {},
 			masterGainNode: null,
 			keys: this.initKeys(),
+			volume: 0.5
 		}
 	}
 
@@ -62,6 +64,12 @@ class Keyboard extends React.Component {
 		this.state.oscillators[note.id].stop();
 	}
 
+	onVolumeChange = (event) => {
+		this.volume = Math.fround(event.target.value);
+		this.masterGainNode.gain.value = this.volume;
+		console.log(`Volume: ${this.volume}, Gain: ${this.masterGainNode.gain}`);
+	}
+
 	playTone(freq) {
 		let osc = new OscillatorNode(this.audioCtx, {frequency: freq}); 
 		osc.connect(this.masterGainNode);
@@ -74,6 +82,7 @@ class Keyboard extends React.Component {
 		return (
 			<div className="keyboard">
 				{this.state.keys}
+				<VolumeKnob volume={this.volume} volumeHandler={this.onVolumeChange}/>
 			</div>
 		);
 	}
