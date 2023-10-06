@@ -1,4 +1,6 @@
-# WebSequencer
+# React Piano
+
+This is a project demonstrating the WebAudio API. It renders an on-screen keyboard using React, and binds a WebAudio node to each key.
 
 Hello WebAudio!
 
