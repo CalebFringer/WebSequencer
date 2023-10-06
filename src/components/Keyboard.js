@@ -11,7 +11,6 @@ class Keyboard extends React.Component {
 			oscillators: {},
 			masterGainNode: null,
 			keys: this.initKeys(),
-			volume: 0.5
 		}
 	}
 
@@ -65,9 +64,7 @@ class Keyboard extends React.Component {
 	}
 
 	onVolumeChange = (event) => {
-		this.volume = Math.fround(event.target.value);
-		this.masterGainNode.gain.value = this.volume;
-		console.log(`Volume: ${this.volume}, Gain: ${this.masterGainNode.gain}`);
+		this.masterGainNode.gain.value = event.target.value;
 	}
 
 	playTone(freq) {
