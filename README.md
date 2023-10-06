@@ -1,8 +1,8 @@
 # React Piano
 
-This is a project demonstrating the WebAudio API. It renders an on-screen keyboard using React, and binds a WebAudio node to each key.
+This is a project demonstrating the WebAudio API. It renders an on-screen keyboard using React, and binds a WebAudio node to each key on key presses.
 
-Hello WebAudio!
+Check it out here: https://sepulchre49.github.io/react-piano/
 
 To test your own copy, fork this repository, install the dependencies with ```npm i```, & run ```npm start```
 
